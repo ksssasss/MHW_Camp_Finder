@@ -1,71 +1,110 @@
 # 魔物獵人荒野 最近營地查詢系統
 
-這是一個用於查詢魔物獵人荒野中最近營地的工具。
+這是一個用於查詢魔物獵人荒野中最近營地的工具。使用 PyQt6 開發的圖形界面應用程式。
 
 ## 功能特點
 
-- 支援多個地圖和區域的營地查詢
-- 顯示所有營地距離，並按距離排序
-- 跨平台支援（Windows 和 macOS）
-- 現代化的圖形界面
+- 支援多個地圖區域：
+  - 遺跡平原 (Ruins of Wyveria)
+  - 冰霜峭壁 (Iceshard Cliffs)
+  - 油井盆地 (Oilwell Basin)
+  - 緋紅森林 (Scarlet Forest)
+  - 迎風平原 (Windward Plains)
+- 直觀的圖形界面
+- 即時查詢最近營地
+- 顯示詳細的距離資訊
 
 ## 系統需求
 
-- Python 3.9 或更高版本
+- Python 3.8 或更高版本
 - PyQt6
+- 其他依賴項請參考 requirements.txt
 
 ## 安裝步驟
 
-1. 克隆專案：
+1. 克隆此倉庫：
 ```bash
-git clone [repository_url]
-cd Auto_Camp
+git clone https://github.com/ksssasss/MHW_Camp_Finder.git
+cd MHW_Camp_Finder
 ```
 
 2. 創建並啟動虛擬環境：
 ```bash
 python -m venv .venv
-source .venv/bin/activate  # Linux/macOS
+source .venv/bin/activate  # Linux/Mac
 # 或
 .venv\Scripts\activate  # Windows
 ```
 
-3. 安裝依賴：
+3. 安裝依賴項：
 ```bash
 pip install -r requirements.txt
 ```
 
 ## 使用方法
 
-1. 啟動應用程式：
+1. 啟動程式：
 ```bash
 python mhw_camp_finder_qt.py
 ```
 
 2. 在界面中：
-   - 選擇地圖
-   - 選擇區域
+   - 選擇要查詢的地圖
+   - 選擇目標區域
    - 點擊「查詢最近營地」按鈕
    - 查看結果
 
-## 開發進度
+## 數據結構說明
 
-### 2024-03-22
-- 移除舊版 tkinter 實現
-- 優化 PyQt6 界面
-- 簡化專案結構
-- 移除不必要的依賴
+### 地圖數據格式
 
-### 2024-03-22
-- 初始版本發布
-- 實現基本的營地查詢功能
-- 使用 PyQt6 建立現代化界面
-- 支援跨平台運行
+每個地圖的數據結構包含兩個主要部分：
 
-## 注意事項
+1. `camps` 字典：
+   - 包含所有營地的日文名稱
+   - 每個營地都有到其他區域的距離數據
+   - 距離單位為公尺
 
-- 如果遇到 PyQt6 安裝問題，請確保使用正確的版本
-- 在 macOS 上可能需要額外的權限設置
+2. `camp_names` 字典：
+   - 將數字索引映射到營地名稱
+   - 用於在程式中識別和顯示營地
+
+### 最近更新
+
+- 2024-03-21: 統一所有地圖的數據結構格式
+  - 將所有地圖數據轉換為新的標準格式
+  - 包含完整的營地距離資訊
+  - 優化程式碼以適應新的數據結構
+
+## 開發者說明
+
+### 數據更新
+
+如需更新地圖數據，請修改 `map_data.py` 文件，確保遵循以下格式：
+
+```python
+MAP_DATA = {
+    '地圖名稱': {
+        'camps': {
+            '營地名稱': {
+                區域編號: 距離,
+                ...
+            },
+            ...
+        },
+        'camp_names': {
+            索引: '營地名稱',
+            ...
+        }
+    }
+}
+```
+
+### 注意事項
+
+- 確保所有距離數據的單位統一（公尺）
+- 保持營地名稱的一致性
+- 更新數據時注意保持格式正確
 
 ## 授權
 
