@@ -28,13 +28,13 @@ class MHWCampFinderApp(QMainWindow):
         
         # 標題
         title_label = QLabel("魔物獵人荒野 最近營地查詢系統")
-        title_label.setFont(QFont('微軟正黑體', 16, QFont.Weight.Bold))
+        title_label.setFont(QFont('Microsoft JhengHei', 16, QFont.Weight.Bold))
         title_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         main_layout.addWidget(title_label)
         
         # 創建分頁
         tab_widget = QTabWidget()
-        tab_widget.setFont(QFont('微軟正黑體', 12))
+        tab_widget.setFont(QFont('Microsoft JhengHei', 12))
         
         # 查詢分頁
         query_tab = QWidget()
@@ -43,9 +43,9 @@ class MHWCampFinderApp(QMainWindow):
         # 地圖選擇區域
         map_layout = QHBoxLayout()
         map_label = QLabel("選擇地圖：")
-        map_label.setFont(QFont('微軟正黑體', 12))
+        map_label.setFont(QFont('Microsoft JhengHei', 12))
         self.map_combo = QComboBox()
-        self.map_combo.setFont(QFont('微軟正黑體', 12))
+        self.map_combo.setFont(QFont('Microsoft JhengHei', 12))
         # 按照指定順序添加地圖
         map_order = ['天塹沙原', '緋紅森林', '湧油山谷', '冰霧斷崖', '龍都遺跡']
         self.map_combo.addItems(map_order)
@@ -58,9 +58,9 @@ class MHWCampFinderApp(QMainWindow):
         # 區域選擇區域
         area_layout = QHBoxLayout()
         area_label = QLabel("選擇區域：")
-        area_label.setFont(QFont('微軟正黑體', 12))
+        area_label.setFont(QFont('Microsoft JhengHei', 12))
         self.area_combo = QComboBox()
-        self.area_combo.setFont(QFont('微軟正黑體', 12))
+        self.area_combo.setFont(QFont('Microsoft JhengHei', 12))
         self.area_combo.currentTextChanged.connect(self.on_area_selected)
         area_layout.addWidget(area_label)
         area_layout.addWidget(self.area_combo)
@@ -69,18 +69,18 @@ class MHWCampFinderApp(QMainWindow):
         
         # 查詢按鈕
         self.search_button = QPushButton("查詢最近營地")
-        self.search_button.setFont(QFont('微軟正黑體', 12))
+        self.search_button.setFont(QFont('Microsoft JhengHei', 12))
         self.search_button.setEnabled(False)
         self.search_button.clicked.connect(self.find_nearest_camp)
         query_layout.addWidget(self.search_button, alignment=Qt.AlignmentFlag.AlignCenter)
         
         # 結果顯示區域
         result_label = QLabel("查詢結果：")
-        result_label.setFont(QFont('微軟正黑體', 12))
+        result_label.setFont(QFont('Microsoft JhengHei', 12))
         query_layout.addWidget(result_label)
         
         self.result_text = QTextEdit()
-        self.result_text.setFont(QFont('微軟正黑體', 12))
+        self.result_text.setFont(QFont('Microsoft JhengHei', 12))
         self.result_text.setReadOnly(True)
         self.result_text.setMinimumHeight(200)
         query_layout.addWidget(self.result_text)
