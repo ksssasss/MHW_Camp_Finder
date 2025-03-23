@@ -55,7 +55,36 @@ Ref: https://x.com/kuaty8944/status/1900083779026510304
 ### 打包說明
 
 #### Windows
-請參考 [windows_build.md](windows_build.md) 檔案。
+
+1. 環境設置：
+   * 安裝 Python 3.9 或更高版本
+   * 安裝所需套件：
+     ```bash
+     pip install -r requirements.txt
+     pip install pyinstaller
+     ```
+   * 確保系統安裝了 Microsoft Visual C++ Redistributable
+   * 確保系統安裝了 Microsoft JhengHei 字體
+
+2. 打包步驟：
+   * 開啟命令提示字元（CMD）或 PowerShell
+   * 切換到專案目錄
+   * 執行打包命令：
+     ```bash
+     pyinstaller mhw_camp_finder_win.spec
+     ```
+   * 打包完成後，執行檔將位於 `dist` 資料夾中
+
+3. 測試步驟：
+   * 進入 `dist` 資料夾
+   * 執行 `魔物獵人荒野 最近營地查詢小工具.exe`
+   * 測試以下功能：
+     - 地圖選擇
+     - 區域選擇
+     - 營地查詢
+     - 營地設定
+     - 中文顯示
+     - 視窗縮放
 
 #### macOS
 1. 安裝必要套件：
