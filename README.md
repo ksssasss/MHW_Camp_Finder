@@ -20,47 +20,79 @@
 3. 使用者介面
    - 使用分頁式設計，方便切換查詢和設定功能
    - 支援滾動查看，適合顯示大量營地資訊
-   - 使用微軟正黑體，提供清晰的中文顯示
+   - 使用 Microsoft JhengHei 字體，提供清晰的中文顯示
 
-## 使用方式
+## 安裝方式
 
-1. 營地查詢
-   - 選擇目標地圖
-   - 選擇目標區域
-   - 點擊「查詢最近營地」按鈕
-   - 查看結果，最近的營地會以粗體和淡藍色特別標示
+### 執行檔版本（推薦）
 
-2. 營地設定
-   - 切換到「營地設定」分頁
-   - 勾選每個地圖可用的營地
-   - 可使用「全選」或「清空」按鈕快速設定
-   - 設定會自動保存
+#### Windows
+1. 從 Release 頁面下載最新的 Windows 版本
+2. 解壓縮檔案
+3. 執行 `魔物獵人荒野 最近營地查詢小工具.exe`
+
+#### macOS
+1. 從 Release 頁面下載最新的 macOS 版本
+2. 解壓縮檔案
+3. 執行 `魔物獵人荒野 最近營地查詢小工具.app`
+
+### 從原始碼安裝
+
+1. 克隆此專案：
+   ```bash
+   git clone https://github.com/ksssasss/MHW_Camp_Finder.git
+   ```
+
+2. 安裝所需套件：
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. 執行程式：
+   ```bash
+   python mhw_camp_finder_qt.py
+   ```
+
+## 開發者說明
+
+### 打包說明
+
+#### Windows
+請參考 [windows_build.md](windows_build.md) 檔案。
+
+#### macOS
+1. 安裝必要套件：
+   ```bash
+   pip install -r requirements.txt
+   pip install pyinstaller
+   ```
+
+2. 執行打包命令：
+   ```bash
+   pyinstaller mhw_camp_finder.spec
+   ```
+
+3. 打包完成後，執行檔將位於 `dist` 資料夾中
+
+## 系統需求
+
+- Windows 10 或更新版本 / macOS 10.13 或更新版本
+- 顯示器解析度建議 1280x720 或以上
+- 需要安裝 Microsoft JhengHei 字體（Windows 系統通常已預裝）
 
 ## 注意事項
 
 1. 使用前請先在營地設定中選擇可用的營地
 2. 預設營地（大本營、莫利巴之家、風音之村）會自動勾選且不可更改
 3. 每個地圖有建議的營地數量限制，超過限制會顯示提示訊息
-
-## 系統需求
-
-- Python 3.6 或更高版本
-- PyQt6
-- 其他依賴套件（請參考 requirements.txt）
-
-## 安裝方式
-
-1. 克隆此專案
-2. 安裝所需套件：
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. 執行程式：
-   ```bash
-   python mhw_camp_finder_qt.py
-   ```
+4. 設定會自動保存在同目錄下的 camp_settings.json 檔案中
 
 ## 更新日誌
+
+### 2024-03-23
+- 新增 Windows 和 macOS 打包設定
+- 優化字體設定，統一使用 Microsoft JhengHei
+- 改進應用程式視窗標題和顯示效果
 
 ### 2024-03-21
 - 新增營地數量限制提示功能
